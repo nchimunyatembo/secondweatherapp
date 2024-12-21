@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            background-color: skyblue;
+            color:  blue;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: olivedrab;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+        .footer {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="">Home</a>
+        <a href="">Login</a>
+        <a href="">Signup</a>
+        <a href="">Services</a>
+        <a href="">About Us</a>
+        <a href="">Contact Us</a>
+    </div>
+    
+    <div style="padding: 20px;">
+        <h1>Weather Application</h1>
+        <form method="get">
+            <input type="text" name="city" placeholder="Enter city" value="{{ city }}">
+            <button type="submit">Search</button>
+        </form>
+        <h2>Weather in {{ city }}</h2>
+        {% if weather.main %}
+            <p>Temperature: {{ weather.main.temp }}°C</p>
+            <p>Condition: {{ weather.weather.0.description }}</p>
+        {% else %}
+            <p>Weather information not available.</p>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        <p>Prepared by NCHIMUNYA TEMBO App Solution</p>
+        <p>Email: nchimunyatembo09@gmail.com | Phone: 260978602928</p>
+    </div>
+</body>
+</html>

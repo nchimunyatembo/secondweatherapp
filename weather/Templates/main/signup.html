@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        body {
+            background-color: skyblue;
+            color: blue;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: olivedrab;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+        .footer {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .signup-container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'signup' %}">Signup</a>
+        <a href="#">Services</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+    </div>
+
+    <div class="signup-container">
+        <h2>Signup</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Automatically render the form fields -->
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>Prepared by NCHIMUNYA TEMBO App Solution</p>
+        <p>Email: nchimunyatembo09@gmail.com | Phone: 260978602928</p>
+    </div>
+</body>
+</html>
